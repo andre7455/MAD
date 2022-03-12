@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 32, 102, 34),
           title: const Text("helloWorld"),
         ),
-        body: Container(
-          child: const Text("hello again"),
+        body: Center(
+          child: Container(
+            child: const Text("hello again"),
+          ),
         ),
       ),
     );
