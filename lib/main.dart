@@ -1,25 +1,45 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    const MaterialApp(
+      title: 'Flutter Tutorial',
+      home: TutorialHome(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class TutorialHome extends StatelessWidget {
+  const TutorialHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 32, 102, 34),
-          title: const Text("helloWorld"),
+    // Scaffold is a layout for
+    // the major Material Components.
+    return Scaffold(
+      appBar: AppBar(
+        leading: const IconButton(
+          icon: Icon(Icons.menu),
+          tooltip: 'Navigation menu',
+          onPressed: null,
         ),
-        body: Center(
-          child: Container(
-            child: const Text("hello again"),
+        title: const Text('Example title'),
+        actions: const [
+          IconButton(
+            icon: Icon(Icons.search),
+            tooltip: 'Search',
+            onPressed: null,
           ),
-        ),
+        ],
+      ),
+      // body is the majority of the screen.
+      body: const Center(
+        child: Text('Hello, world!'),
+      ),
+      floatingActionButton: const FloatingActionButton(
+        tooltip: 'Add', // used by assistive technologies
+        child: Icon(Icons.add),
+        onPressed: null,
       ),
     );
   }
