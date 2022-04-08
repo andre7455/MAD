@@ -12,7 +12,7 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Color.fromARGB(255, 50, 106, 216),
         title: const Text("green"),
       ),
       body: Column(
