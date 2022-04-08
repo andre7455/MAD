@@ -16,10 +16,10 @@ class _MyappState extends State<Myapp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       // widget 1 staat hier
-     home: AppBar(
-       title: Text('KAAS'),
-     ),
-    //  widget 2 komt hopenlijk hier
+      home: AppBar(
+        backgroundColor: Color.fromARGB(255, 209, 50, 50),
+        title: Text('KAAS'),
+      )
     );
   }
 }
