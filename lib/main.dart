@@ -21,15 +21,17 @@ class _MyappState extends State<Myapp> {
             scaffoldBackgroundColor: Colors.white10),
         debugShowCheckedModeBanner: false, // Remove the debug banner
         home: Scaffold(
-            body: Row(children: <Widget>[
           Column(children: <Widget>[
             // Content of my Row
             //Item 1/4
             Expanded(
-                child: Container(
+                child:
+                Row(children: <Widget>[
+                  Container(
               padding: const EdgeInsets.all(20),
               color: Colors.red,
               child: const Text("Item 1"),
+                )] 
             )),
             Expanded(
                 child: Container(
@@ -49,6 +51,6 @@ class _MyappState extends State<Myapp> {
                     color: Colors.orange,
                     child: const Text("Uranus")))
           ]),
-        ])));
+        ]]));
   }
 }
