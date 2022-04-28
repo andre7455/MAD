@@ -22,17 +22,15 @@ class _MyappState extends State<Myapp> {
             scaffoldBackgroundColor: Colors.white10),
         debugShowCheckedModeBanner: false, // Remove the debug banner
         home: Scaffold(
+            body: Row(children: <Widget>[
           Column(children: <Widget>[
             // Content of my Row
             //Item 1/4
             Expanded(
-                child:
-                Row(children: <Widget>[
-                  Container(
+                child: Container(
               padding: const EdgeInsets.all(20),
               color: Colors.red,
               child: const Text("Item 1"),
-                )] 
             )),
             Expanded(
                 child: Container(
@@ -52,6 +50,7 @@ class _MyappState extends State<Myapp> {
                     color: Colors.orange,
                     child: const Text("Uranus")))
           ]),
+<<<<<<< HEAD
         ]]));
 =======
     return SafeArea(
@@ -91,5 +90,8 @@ class _MyappState extends State<Myapp> {
                       ]),
                     ))))));
 >>>>>>> parent of 57c9de0 (made a row of bloks)
+=======
+        ])));
+>>>>>>> parent of a9b53da (Update main.dart)
   }
 }
