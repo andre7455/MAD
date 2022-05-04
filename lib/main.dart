@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 int x = 65;
+String kaas = "";
+
 void main() {
   runApp(notMyApp());
 }
@@ -20,11 +22,12 @@ class _notMyAppState extends State<notMyApp> {
       child: MaterialApp(
           home: Scaffold(
         backgroundColor: Color.fromARGB(255, 90, 165, x),
-        appBar: AppBar(title: Text('kaas')),
+        appBar: AppBar(title: Text(kaas)),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             setState(() {
               x = x + 10;
+              kaas = kaas + "frans";
             });
           },
           backgroundColor: Colors.green,
