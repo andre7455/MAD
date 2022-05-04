@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+int x = 65;
 void main() {
-  runApp(Myapp());
+  runApp(notMyApp());
 }
 
-class Myapp extends StatelessWidget {
-  const Myapp({Key? key}) : super(key: key);
+class notMyApp extends StatefulWidget {
+  const notMyApp({Key? key}) : super(key: key);
+
+  @override
+  State<notMyApp> createState() => _notMyAppState();
+}
+
+class _notMyAppState extends State<notMyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text('Mobile Application Development'),
+    return Center(
+      child: MaterialApp(
+          home: Scaffold(
+        backgroundColor: Color.fromARGB(255, 90, 165, x),
+        appBar: AppBar(title: Text('kaas')),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              x = x + 10;
+            });
+          },
+          backgroundColor: Colors.green,
+          child: const Icon(Icons.add),
+        ),
       )),
     );
   }
