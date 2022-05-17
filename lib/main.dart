@@ -5,9 +5,10 @@ int i = 0;
 int r = 0;
 int g = 0;
 int b = 0;
+int opacityAppBar = 255;
 bool start = false;
 
-String kaas = "MAD - André van der Lugt";
+String title = "MAD - André van der Lugt";
 
 void main() {
   runApp(notMyApp());
@@ -28,14 +29,14 @@ class _notMyAppState extends State<notMyApp> {
           home: Scaffold(
         backgroundColor: Color.fromARGB(255, r, g, b),
         appBar: AppBar(
-            title: Text(kaas),
-            backgroundColor: Colors.transparent,
+            title: Text(title),
+            backgroundColor: Color.fromARGB(opacityAppBar, 0, 0, 255),
             elevation: 0.0),
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Color.fromARGB(opacityAppBar, 0, 0, 255),
           onPressed: () {
             changeColor();
           },
-          backgroundColor: Color.fromARGB(255, 255, 0, 0),
           child: const Icon(Icons.add),
         ),
       )),
@@ -44,6 +45,8 @@ class _notMyAppState extends State<notMyApp> {
 
   void changeColor() {
     return setState(() {
+      title = "";
+      opacityAppBar = 0;
       switch (i) {
         case 0:
           r = 0;
