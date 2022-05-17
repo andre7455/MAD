@@ -40,42 +40,28 @@ class _notMyAppState extends State<notMyApp> {
   }
 
   void changeColor() {
-    if (start = true) {
-      start = false;
-    } else {
-      start = true;
-    }
-    while(start){
-      
-    }
-    do {
-      return setState(() {
-        switch (i) {
-          case 0:
-            r = 255;
-            g = 0;
-            b = 0;
-            i = 1;
-            break;
-
-          case 1:
-            r = 0;
-            g = 255;
-            b = 0;
-            i = 2;
-            break;
-
-          case 2:
-            r = 0;
-            g = 0;
-            b = 255;
-            i = 0;
-            break;
-          default:
-            kaas = start.toString();
-        }
-      });
-    }
+    return setState(() {
+      switch (i) {
+        case 0:
+          r = 0;
+          g = 255;
+          b = 0;
+          i = 1;
+          break;
+        case 1:
+          r = 0;
+          g = 0;
+          b = 255;
+          i = 2;
+          break;
+        case 2:
+          r = 255;
+          g = 0;
+          b = 0;
+          i = 0;
+          break;
+        default:
+      }
+    });
   }
 }
-
