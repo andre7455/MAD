@@ -27,7 +27,10 @@ class _notMyAppState extends State<notMyApp> {
       child: MaterialApp(
           home: Scaffold(
         backgroundColor: Color.fromARGB(255, r, g, b),
-        appBar: AppBar(title: Text(kaas)),
+        appBar: AppBar(
+            title: Text(kaas),
+            backgroundColor: Colors.transparent,
+            elevation: 0.0),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             changeColor();
