@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-int x = 65;
-String kaas = "";
+int i = 0;
+int r = 0;
+int g = 0;
+int b = 0;
+bool start = false;
+
+String kaas = "MAD - André van der Lugt";
 
 void main() {
   runApp(notMyApp());
@@ -21,19 +26,56 @@ class _notMyAppState extends State<notMyApp> {
     return Center(
       child: MaterialApp(
           home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 90, 165, x),
+        backgroundColor: Color.fromARGB(255, r, g, b),
         appBar: AppBar(title: Text(kaas)),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            setState(() {
-              x = x + 10;
-              kaas = kaas + "frans";
-            });
+            changeColor();
           },
-          backgroundColor: Colors.green,
+          backgroundColor: Color.fromARGB(255, 255, 0, 0),
           child: const Icon(Icons.add),
         ),
       )),
     );
   }
+
+  void changeColor() {
+    if (start = true) {
+      start = false;
+    } else {
+      start = true;
+    }
+    while(start){
+      
+    }
+    do {
+      return setState(() {
+        switch (i) {
+          case 0:
+            r = 255;
+            g = 0;
+            b = 0;
+            i = 1;
+            break;
+
+          case 1:
+            r = 0;
+            g = 255;
+            b = 0;
+            i = 2;
+            break;
+
+          case 2:
+            r = 0;
+            g = 0;
+            b = 255;
+            i = 0;
+            break;
+          default:
+            kaas = start.toString();
+        }
+      });
+    }
+  }
 }
+
