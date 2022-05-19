@@ -33,7 +33,7 @@ class _notMyAppState extends State<notMyApp> {
             backgroundColor: Color.fromARGB(opacityAppBar, 0, 0, 255),
             elevation: 0.0),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Color.fromARGB(opacityAppBar, 0, 0, 255),
+          backgroundColor: Color.fromARGB(255, r, g, b),
           onPressed: () {
             changeColor();
           },
@@ -44,9 +44,24 @@ class _notMyAppState extends State<notMyApp> {
   }
 
   void changeColor() {
+    if (start == true) {
+      start = false;
+    } else {
+      start = true;
+      title = start.toString();
+    }
+    int loop = 0;
+    int maxLoops = 10;
+    for (loop = loop + 1; loop >= maxLoops;) {
+      SwitchColor();
+    }
+    while (start == true);
+  }
+
+  void SwitchColor() {
     return setState(() {
-      title = "";
       opacityAppBar = 0;
+      title = start.toString();
       switch (i) {
         case 0:
           r = 0;
