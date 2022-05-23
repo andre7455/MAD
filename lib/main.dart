@@ -1,47 +1,82 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(notMyApp());
+  runApp(
+    MaterialApp(
+      title: 'Named Routes Demo',
+      // Start the app with the "/" named route. In this case, the app starts
+      // on the FirstScreen widget.
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const FirstScreen(),
+        '/second': (context) => const SecondScreen(),
+        '/thirt': (context) => const ThirtScreen(),
+      },
+    ),
+  );
 }
 
-class notMyApp extends StatefulWidget {
-  const notMyApp({Key? key}) : super(key: key);
-
-  @override
-  State<notMyApp> createState() => _notMyAppState();
-}
-
-class _notMyAppState extends State<notMyApp> {
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({key});
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: MaterialApp(
-          home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 56, 128, 196),
-        appBar: AppBar(
-            title: Text("Home"),
-            backgroundColor: Color.fromARGB(255, 0, 0, 255),
-            elevation: 0.0),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Color.fromARGB(255, 16, 16, 221),
-          onPressed: () {},
-          child: const Icon(Icons.cottage),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Screen'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          // Within the `FirstScreen` widget
+          onPressed: () {
+            Navigator.pushNamed(context, '/thirt');
+          },
+          child: const Text('Launch screen'),
         ),
-      )),
+      ),
     );
   }
 }
 
-class Secondscreen extends StatefulWidget {
-  const Secondscreen({Key? key}) : super(key: key);
-
-  @override
-  State<Secondscreen> createState() => _SecondscreenState();
-}
-
-class _SecondscreenState extends State<Secondscreen> {
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({key});
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
+    );
+  }
+}
+
+class ThirtScreen extends StatelessWidget {
+  const ThirtScreen({key});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 100,
+        width: 100,
+        child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(children: [
+              AppBar(title: Text("kaas")),
+              Scaffold(
+                body: Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Go back you cunting ass beggar!'),
+                  ),
+                ),
+              )
+            ])));
   }
 }
