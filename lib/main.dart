@@ -61,22 +61,19 @@ class ThirtScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 100,
         width: 100,
-        child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Column(children: [
-              AppBar(title: Text("kaas")),
-              Scaffold(
-                body: Center(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text('Go back you cunting ass beggar!'),
-                  ),
-                ),
-              )
-            ])));
+        child: Column(children: [
+          AppBar(title: Text("kaas")),
+          Scaffold(
+            body: Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Go back you cunting ass beggar!'),
+              ),
+            ),
+          )
+        ]));
   }
 }
