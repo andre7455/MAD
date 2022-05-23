@@ -17,7 +17,7 @@ class _notMyAppState extends State<notMyApp> {
     return Center(
       child: MaterialApp(
           home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 69, 197, 55),
+        backgroundColor: Color.fromARGB(255, 56, 128, 196),
         appBar: AppBar(
             title: Text("Home"),
             backgroundColor: Color.fromARGB(255, 0, 0, 255),
@@ -25,9 +25,23 @@ class _notMyAppState extends State<notMyApp> {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Color.fromARGB(255, 16, 16, 221),
           onPressed: () {},
-          child: const Icon(Icons.add),
+          child: const Icon(Icons.cottage),
         ),
       )),
     );
+  }
+}
+
+class Secondscreen extends StatefulWidget {
+  const Secondscreen({Key? key}) : super(key: key);
+
+  @override
+  State<Secondscreen> createState() => _SecondscreenState();
+}
+
+class _SecondscreenState extends State<Secondscreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
