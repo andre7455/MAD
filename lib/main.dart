@@ -17,20 +17,32 @@ class Homescreen extends StatelessWidget {
   const Homescreen({key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('First Screen'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          // Within the `Homescreen` widget
-          onPressed: () {
-            Navigator.pushNamed(context, '/second');
-          },
-          child: const Text('Launch screen'),
+    return Column(children: [
+      Container(
+        height: 667,
+        width: 500,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('First Screen'),
+          ),
+          body: Center(
+              child: Column(
+            children: [
+              ElevatedButton(
+                // Within the `Homescreen` widget
+                onPressed: () {
+                  Navigator.pushNamed(context, '/second');
+                },
+                child: const Text('Launch screen'),
+              ),
+              FloatingActionButton(onPressed: () {
+                Navigator.pushNamed(context, '/thirt');
+              })
+            ],
+          )),
         ),
-      ),
-    );
+      )
+    ]);
   }
 }
 
@@ -38,14 +50,17 @@ class Flashing extends StatelessWidget {
   const Flashing({key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: new Image.network(
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => Navigator.pop(context),
+      child: Scaffold(
+          body: Image.network(
         "https://j.gifs.com/vMO2wL.gif",
         fit: BoxFit.cover,
         height: double.infinity,
         width: double.infinity,
         alignment: Alignment.center,
-      ),
+      )),
     );
   }
 }
@@ -54,19 +69,24 @@ class Settings extends StatelessWidget {
   const Settings({key});
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Column(children: [
-      AppBar(title: Text("Settings")),
-      Scaffold(
-        body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Text('Go back you cunting ass beggar!'),
+    return Column(children: [
+      Container(
+        height: 667,
+        width: 500,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Settings'),
           ),
+          body: Center(
+              child: Column(
+            children: [
+              FloatingActionButton(onPressed: () {
+                Navigator.pushNamed(context, '/');
+              })
+            ],
+          )),
         ),
       )
-    ]));
+    ]);
   }
 }
