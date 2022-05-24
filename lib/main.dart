@@ -1,4 +1,8 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+
+bool isSwitched = false;
 
 void main() {
   runApp(
@@ -23,7 +27,7 @@ class Homescreen extends StatelessWidget {
         width: 500,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('First Screen'),
+            title: const Text('Home Screen'),
           ),
           body: Center(
               child: Column(
@@ -35,9 +39,11 @@ class Homescreen extends StatelessWidget {
                 },
                 child: const Text('Launch screen'),
               ),
-              FloatingActionButton(onPressed: () {
-                Navigator.pushNamed(context, '/thirt');
-              })
+              FloatingActionButton(
+                  child: const Icon(Icons.settings),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/thirt');
+                  })
             ],
           )),
         ),
@@ -80,13 +86,26 @@ class Settings extends StatelessWidget {
           body: Center(
               child: Column(
             children: [
-              FloatingActionButton(onPressed: () {
-                Navigator.pushNamed(context, '/');
-              })
+              FloatingActionButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/');
+                  },
+                  child: const Icon(Icons.settings)),
+              const Text("data"),
+              Switch(
+                value: isSwitched,
+                onChanged: (value) {
+                  setState(value);
+                },
+              ),
             ],
           )),
         ),
       )
     ]);
+  }
+
+  setState(value) {
+    isSwitched = value;
   }
 }
