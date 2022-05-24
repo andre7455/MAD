@@ -3,22 +3,18 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      title: 'Named Routes Demo',
-      // Start the app with the "/" named route. In this case, the app starts
-      // on the FirstScreen widget.
       initialRoute: '/',
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => const FirstScreen(),
-        '/second': (context) => const SecondScreen(),
-        '/thirt': (context) => const ThirtScreen(),
+        '/': (context) => const Homescreen(),
+        '/second': (context) => const Flashing(),
+        '/thirt': (context) => const Settings(),
       },
     ),
   );
 }
 
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({key});
+class Homescreen extends StatelessWidget {
+  const Homescreen({key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +23,9 @@ class FirstScreen extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          // Within the `FirstScreen` widget
+          // Within the `Homescreen` widget
           onPressed: () {
-            Navigator.pushNamed(context, '/thirt');
+            Navigator.pushNamed(context, '/second');
           },
           child: const Text('Launch screen'),
         ),
@@ -38,42 +34,39 @@ class FirstScreen extends StatelessWidget {
   }
 }
 
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({key});
+class Flashing extends StatelessWidget {
+  const Flashing({key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
-        ),
+      body: new Image.network(
+        "https://j.gifs.com/vMO2wL.gif",
+        fit: BoxFit.cover,
+        height: double.infinity,
+        width: double.infinity,
+        alignment: Alignment.center,
       ),
     );
   }
 }
 
-class ThirtScreen extends StatelessWidget {
-  const ThirtScreen({key});
+class Settings extends StatelessWidget {
+  const Settings({key});
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 100,
         child: Column(children: [
-          AppBar(title: Text("kaas")),
-          Scaffold(
-            body: Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('Go back you cunting ass beggar!'),
-              ),
-            ),
-          )
-        ]));
+      AppBar(title: Text("Settings")),
+      Scaffold(
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Go back you cunting ass beggar!'),
+          ),
+        ),
+      )
+    ]));
   }
 }
