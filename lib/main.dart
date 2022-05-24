@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 bool isSwitched = false;
@@ -91,7 +89,7 @@ class Settings extends StatelessWidget {
                     Navigator.pushNamed(context, '/');
                   },
                   child: const Icon(Icons.settings)),
-              const Text("data"),
+              const Text("safemode"),
               Switch(
                 value: isSwitched,
                 onChanged: (value) {
