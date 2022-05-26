@@ -21,15 +21,6 @@ class Homescreen extends StatelessWidget {
   const Homescreen({key});
   @override
   Widget build(BuildContext context) {
-    gyroscopeEvents.listen((GyroscopeEvent event) {
-      print(event);
-    });
-// [GyroscopeEvent (x: 0.0, y: 0.0, z: 0.0)]
-
-    magnetometerEvents.listen((MagnetometerEvent event) {
-      print(event);
-    });
-// [MagnetometerEvent (x: -23.6, y: 6.2, z: -34.9)]
     return Column(children: [
       Container(
         height: 667,
