@@ -80,7 +80,7 @@ class Settings extends StatefulWidget {
   State<Settings> createState() => _SettingsState();
 }
 
-//statefull widget
+//statefull widget classes
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
