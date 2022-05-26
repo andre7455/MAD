@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 bool isSwitched = false;
+var text = "";
 
 void main() {
   runApp(
@@ -25,7 +26,7 @@ class Homescreen extends StatelessWidget {
         width: 500,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Home Screen'),
+            title: Text(text + "Home Screen"),
           ),
           body: Center(
               child: Column(
@@ -33,9 +34,13 @@ class Homescreen extends StatelessWidget {
               ElevatedButton(
                 // Within the `Homescreen` widget
                 onPressed: () {
-                  Navigator.pushNamed(context, '/second');
+                  if (isSwitched == false) {
+                    text = "mag niet";
+                  } else {
+                    Navigator.pushNamed(context, '/second');
+                  }
                 },
-                child: const Text('Launch screen'),
+                child: const Text('Flashing screen'),
               ),
               FloatingActionButton(
                   child: const Icon(Icons.settings),
@@ -69,8 +74,14 @@ class Flashing extends StatelessWidget {
   }
 }
 
-class Settings extends StatelessWidget {
+class Settings extends StatefulWidget {
   const Settings({key});
+  @override
+  State<Settings> createState() => _SettingsState();
+}
+
+//statefull widget
+class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -84,16 +95,13 @@ class Settings extends StatelessWidget {
           body: Center(
               child: Column(
             children: [
-              FloatingActionButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/');
-                  },
-                  child: const Icon(Icons.settings)),
               const Text("safemode"),
               Switch(
                 value: isSwitched,
                 onChanged: (value) {
-                  setState(value);
+                  setState(() {
+                    isSwitched = value;
+                  });
                 },
               ),
             ],
@@ -101,9 +109,5 @@ class Settings extends StatelessWidget {
         ),
       )
     ]);
-  }
-
-  setState(value) {
-    isSwitched = value;
   }
 }
