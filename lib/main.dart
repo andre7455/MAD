@@ -35,13 +35,8 @@ class Homescreen extends StatelessWidget {
               child: Column(
             children: [
               ElevatedButton(
-                // Within the `Homescreen` widget
                 onPressed: () {
-                  //if (safemode == false) {
-                  //  text = "mag niet";
-                  //} else {
                   Navigator.pushNamed(context, '/second');
-                  //}
                 },
                 child: const Text('Flashing screen'),
               ),
