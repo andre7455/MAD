@@ -130,7 +130,7 @@ class _SettingsState extends State<Settings> {
           body: Center(
               child: Column(
             children: [
-              const Text("safemode"),
+              const Text("Safemode"),
               Switch(
                 value: safemode,
                 onChanged: (value) {
