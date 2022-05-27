@@ -4,7 +4,6 @@ import 'dart:async';
 import 'package:proximity_sensor/proximity_sensor.dart';
 
 bool safemode = false;
-var text = "";
 
 void main() {
   runApp(
@@ -29,7 +28,7 @@ class Homescreen extends StatelessWidget {
         width: 500,
         child: Scaffold(
           appBar: AppBar(
-            title: Text(text + "Home Screen"),
+            title: Text("Home Screen"),
           ),
           body: Center(
               child: Column(
