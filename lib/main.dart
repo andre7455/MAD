@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' as foundation;
+import 'dart:async';
+import 'package:proximity_sensor/proximity_sensor.dart';
 
-bool isSwitched = false;
+bool safemode = false;
 var text = "";
 
 void main() {
@@ -34,7 +37,7 @@ class Homescreen extends StatelessWidget {
               ElevatedButton(
                 // Within the `Homescreen` widget
                 onPressed: () {
-                  //if (isSwitched == false) {
+                  //if (safemode == false) {
                   //  text = "mag niet";
                   //} else {
                   Navigator.pushNamed(context, '/second');
@@ -63,10 +66,41 @@ class Flashing extends StatefulWidget {
 }
 
 class _FlashingState extends State<Flashing> {
+  bool _isNear = false;
+  bool opacity = false;
+  late StreamSubscription<dynamic> _streamSubscription;
+
   @override
+  void initState() {
+    super.initState();
+    listenSensor();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _streamSubscription.cancel();
+  }
+
+  Future<void> listenSensor() async {
+    FlutterError.onError = (FlutterErrorDetails details) {
+      if (foundation.kDebugMode) {
+        FlutterError.dumpErrorToConsole(details);
+      }
+    };
+    _streamSubscription = ProximitySensor.events.listen((int event) {
+      setState(() {
+        _isNear = (event > 0) ? false : true;
+        if (safemode) {
+          opacity = _isNear;
+        }
+      });
+    });
+  }
+
   Widget build(BuildContext context) {
     return Opacity(
-        opacity: 0,
+        opacity: opacity ? 0.0 : 1.0,
         child: GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () => Navigator.pop(context),
@@ -88,7 +122,6 @@ class Settings extends StatefulWidget {
   State<Settings> createState() => _SettingsState();
 }
 
-//statefull widget
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
@@ -105,10 +138,10 @@ class _SettingsState extends State<Settings> {
             children: [
               const Text("safemode"),
               Switch(
-                value: isSwitched,
+                value: safemode,
                 onChanged: (value) {
                   setState(() {
-                    isSwitched = value;
+                    safemode = value;
                   });
                 },
               ),
