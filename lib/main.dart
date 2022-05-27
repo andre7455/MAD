@@ -34,11 +34,11 @@ class Homescreen extends StatelessWidget {
               ElevatedButton(
                 // Within the `Homescreen` widget
                 onPressed: () {
-                  if (isSwitched == false) {
-                    text = "mag niet";
-                  } else {
-                    Navigator.pushNamed(context, '/second');
-                  }
+                  //if (isSwitched == false) {
+                  //  text = "mag niet";
+                  //} else {
+                  Navigator.pushNamed(context, '/second');
+                  //}
                 },
                 child: const Text('Flashing screen'),
               ),
@@ -55,22 +55,30 @@ class Homescreen extends StatelessWidget {
   }
 }
 
-class Flashing extends StatelessWidget {
+class Flashing extends StatefulWidget {
   const Flashing({key});
+
+  @override
+  State<Flashing> createState() => _FlashingState();
+}
+
+class _FlashingState extends State<Flashing> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: () => Navigator.pop(context),
-      child: Scaffold(
-          body: Image.network(
-        "https://j.gifs.com/vMO2wL.gif",
-        fit: BoxFit.cover,
-        height: double.infinity,
-        width: double.infinity,
-        alignment: Alignment.center,
-      )),
-    );
+    return Opacity(
+        opacity: 0,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () => Navigator.pop(context),
+          child: Scaffold(
+              body: Image.network(
+            "https://j.gifs.com/vMO2wL.gif",
+            fit: BoxFit.cover,
+            height: double.infinity,
+            width: double.infinity,
+            alignment: Alignment.center,
+          )),
+        ));
   }
 }
 
