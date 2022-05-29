@@ -99,8 +99,8 @@ class _FlashingState extends State<Flashing> {
           behavior: HitTestBehavior.opaque,
           onTap: () => Navigator.pop(context),
           child: Scaffold(
-              body: Image.network(
-            "https://j.gifs.com/vMO2wL.gif",
+              body: Image.asset(
+            "assets/images/test.png",
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
