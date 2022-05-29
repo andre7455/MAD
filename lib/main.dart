@@ -100,7 +100,7 @@ class _FlashingState extends State<Flashing> {
           onTap: () => Navigator.pop(context),
           child: Scaffold(
               body: Image.asset(
-            "assets/images/test.png",
+            "assets/images/flash.gif",
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
